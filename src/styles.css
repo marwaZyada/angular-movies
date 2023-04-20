@@ -42,3 +42,6 @@ a,a:hover
 footer{
   background-color : var(--bg-main)
 }
+.cursor-pointer{
+  cursor: pointer;
+}

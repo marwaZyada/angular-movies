@@ -1,4 +1,13 @@
 
-.activeL{
+.nav-link.activeL{
   color: aquamarine !important;
+}
+.bg{
+  background-color: var(--bg-main)!important;
+}
+.nav-link,.navbar-toggler{
+  color: white !important;
+}
+button.navbar-toggler-icon{
+  background-color:white ;
 }

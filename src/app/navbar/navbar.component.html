@@ -1,61 +1,67 @@
 
+<nav class="navbar navbar-expand-lg navbar-light text-bg-dark bg">
+  <div class="container-fluid">
+    <a class="navbar-brand text-light" routerLink='home'><h3>Noxe</h3></a>
 
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <!-- <span class="navbar-toggler-icon "></span>
+       -->
+       <i class="fa-solid fa-bars text-white"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 "*ngIf="_AuthService.token">
 
-<div>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
-    <div class="container-fluid">
-      <a class="navbar-brand text-light" routerLink='home'><h3>Noxe</h3></a>
+        <li class="nav-item">
+          <a class="nav-link active" routerLinkActive="activeL" routerLink='home'>Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" routerLinkActive="activeL" routerLink='movie'>Movies</a>
+        </li>
 
-      <div class="collapse navbar-collapse " id="navbarSupportedContent">
-
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0 "*ngIf="_AuthService.token">
-
-          <li class="nav-item">
-            <a class="nav-link active" routerLinkActive="activeL" routerLink='home'>Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" routerLinkActive="activeL" routerLink='movie'>Movies</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link active" routerLinkActive="activeL" routerLink='tv'>Tvshow</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" routerLinkActive="activeL" routerLink='actors'>Actors</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" routerLinkActive="activeL" routerLink='details/:id/:media_type'>details</a>
-          </li>
-
-
-
-        </ul>
-        <ul class="navbar-nav mb-2 mb-lg-0 ">
-
-          <li class="nav-item d-flex align-items-center">
-            <i class='fab mx-2 fa-facebook'></i>
-            <i class='fab mx-2 fa-twitter'></i>
-            <i class='fab mx-2 fa-instagram'></i>
-            <i class='fab mx-2 fa-soundcloud'></i>
-          </li>
+        <li class="nav-item">
+          <a class="nav-link active" routerLinkActive="activeL" routerLink='tv'>Tvshow</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" routerLinkActive="activeL" routerLink='actors'>Actors</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" routerLinkActive="activeL" routerLink='details/:id/:media_type'>details</a>
+        </li>
 
 
 
-          <li class="nav-item"  >
-            <a  class="nav-link" *ngIf="_AuthService.token" (click)="_AuthService.logout()">Logout</a>
-          </li>
+      </ul>
+      <ul class="navbar-nav mb-2 mb-lg-0 ">
+
+        <li class="nav-item d-flex align-items-center">
+          <i class='fab mx-2 fa-facebook'></i>
+          <i class='fab mx-2 fa-twitter'></i>
+          <i class='fab mx-2 fa-instagram'></i>
+          <i class='fab mx-2 fa-soundcloud'></i>
+        </li>
 
 
-          <li class="nav-item" *ngIf="!_AuthService.token">
-            <a class="nav-link active" routerLinkActive="activeL" routerLink='register'>Register</a>
-          </li>
 
-          <li class="nav-item" *ngIf="!_AuthService.token">
-            <a class="nav-link active" routerLinkActive="activeL" routerLink='login'>Login</a>
-          </li>
+        <li class="nav-item"  >
+          <a  class="nav-link cursor-pointer" *ngIf="_AuthService.token" (click)="_AuthService.logout()">Logout</a>
+        </li>
 
-        </ul>
-      </div>
+
+        <li class="nav-item" *ngIf="!_AuthService.token">
+          <a class="nav-link active cursor-pointer" routerLinkActive="activeL" routerLink='register'>Register</a>
+        </li>
+
+        <li class="nav-item" *ngIf="!_AuthService.token">
+          <a class="nav-link active cursor-pointer" routerLinkActive="activeL" routerLink='login'>Login</a>
+        </li>
+
+      </ul>
+         
     </div>
-  </nav>
-</div>
+  </div>
+</nav>
+
+
+
+
