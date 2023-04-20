@@ -22,10 +22,11 @@ page:number=1
 
   ngOnInit(): void {
 
-    
+ 
 this._activatedRoute.paramMap.subscribe((val:any)=>{this.page=Number(val.get('page'))
 console.log(this.page);
 })
+
 
 
   
@@ -42,13 +43,14 @@ getMovie(page:number){
     this.movies=res.results.slice(0,5)
     console.log(this.movies);
     
-     })}
-     else{
-      this.page=1
-      this._AuthService.getMovies(page).subscribe(res=>{console.log(res);
-        this.movies=res.results.slice(0,5)
-        console.log(this.movies);
-     })}
+     })
+    }
+    //  else{
+    //   this.page=1
+    //   this._AuthService.getMovies(page).subscribe(res=>{console.log(res);
+    //     this.movies=res.results.slice(0,5)
+    //     console.log(this.movies);
+    //  })}
     
 }
 

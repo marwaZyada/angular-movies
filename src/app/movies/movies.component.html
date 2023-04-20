@@ -17,10 +17,10 @@
 
 <nav aria-label="Page navigation example" class="">
     <ul class="d-flex  justify-content-end mt-5 pagination ">
-      <li class="page-item"><a class="page-link" (click)="getMovie(page-1)" [routerLink]="['/movie',page-1]" routerLinkActive="active">Previous</a></li>
-      <li class="page-item"><a class="page-link"  *ngFor="let page of pages"(click)="getMovie(page)" [routerLink]="['/movie',page]"routerLinkActive="active">{{page}}</a></li>
+      <li class="page-item"><button [disabled]="page==1" class="page-link" (click)="getMovie(page-1)" [routerLink]="['/movie',page-1]" routerLinkActive="active">Previous</button></li>
+      <li class="page-item"><button class="page-link"  *ngFor="let page of pages"(click)="getMovie(page)" [routerLink]="['/movie',page]"routerLinkActive="active">{{page}}</button></li>
     
-      <li class="page-item"><a class="page-link" (click)="getMovie(page+1)" [routerLink]="['/movie',page+1]"routerLinkActive="active">Next</a></li>
+      <li class="page-item"><button [disabled]="page==10" class="page-link" (click)="getMovie(page+1)" [routerLink]="['/movie',page+1]"routerLinkActive="active">Next</button></li>
     </ul>
   </nav>
 
