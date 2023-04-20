@@ -14,7 +14,8 @@ import { ActorsComponent } from './actors/actors.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
-import { DetailsComponent } from './details/details.component'
+import { DetailsComponent } from './details/details.component';
+import { MoviePageComponent } from './movie-page/movie-page.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +28,8 @@ import { DetailsComponent } from './details/details.component'
     TvShowsComponent,
     ActorsComponent,
     NotFoundComponent,
-    DetailsComponent
+    DetailsComponent,
+    MoviePageComponent
   ],
   imports: [
     BrowserModule,

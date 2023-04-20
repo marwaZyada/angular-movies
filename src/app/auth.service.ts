@@ -37,8 +37,8 @@ key:string='580f4a457a7dd480b0592ac9ccc32be9';
   }
 
 
-  getMovies():Observable<any>{
-    return this._HttpClient.get(`https://api.themoviedb.org/3/discover/movie?api_key=${this.key}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=true&page=1`)
+  getMovies(page:number):Observable<any>{
+    return this._HttpClient.get(`https://api.themoviedb.org/3/discover/movie?api_key=${this.key}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=true&page=${page}`)
   }
 
   getTvs():Observable<any>{

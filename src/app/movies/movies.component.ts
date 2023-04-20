@@ -9,23 +9,47 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class MoviesComponent  {
 
-  movies:any=[]
+  movies:any=[];
+  pages:number[]=new Array(10).fill(1).map((el,i)=>el+i)
+page:number=1
  
   image_path:string="https://image.tmdb.org/t/p/w500"
  
 
-  constructor(private _AuthService:AuthService,private _activatedRoute:ActivatedRoute){}
-
+  constructor(private _AuthService:AuthService,private _activatedRoute:ActivatedRoute){
+   this.getMovie(this.page)
+  }
 
   ngOnInit(): void {
 
+    
+this._activatedRoute.paramMap.subscribe((val:any)=>{this.page=Number(val.get('page'))
+console.log(this.page);
+})
+
+
+  
+    
+     
  
-    this._AuthService.getMovies().subscribe(res=>{console.log(res);
-   this.movies=res.results
-   
-    })
 
 
 
   }
+getMovie(page:number){
+  if(page>0&&page<=10){
+  this._AuthService.getMovies(page).subscribe(res=>{console.log(res);
+    this.movies=res.results.slice(0,5)
+    console.log(this.movies);
+    
+     })}
+     else{
+      this.page=1
+      this._AuthService.getMovies(page).subscribe(res=>{console.log(res);
+        this.movies=res.results.slice(0,5)
+        console.log(this.movies);
+     })}
+    
+}
+
 }

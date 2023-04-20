@@ -1,3 +1,11 @@
 .cursor-pointer{
     cursor: pointer;
 }
+.page-link {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.active{
+    background-color: blue;
+}
