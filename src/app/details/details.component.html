@@ -1,0 +1,37 @@
+<div class="row align-items-center">
+    <div class="col-5 col-md-6 p-2" >
+        <div class="ratio ratio-4x3">
+            <img [src]="image_path+item.poster_path" alt="">
+            <img [src]="image_path+item.profile_path" alt="" >
+        </div>
+    </div>
+        <div class="col-6">
+        <h2 class="small mt-1">{{item.title}}{{item.name}}</h2>
+        <p class="text-muted">{{item.overview}}</p>
+        <h4>{{item.budget}}</h4>
+        <h4>{{item.revenue}}</h4>
+        <h4 class="text-muted">{{item.place_of_birth}}</h4>
+        <h4 class="text-muted">{{item.birthday}}</h4>
+
+        <div class="d-flex justify-content-between" *ngIf="item.vote_count">
+        <h2 class="small text-info">{{item.vote_count}}</h2>
+        <i class="fa-solid fa-star"></i>
+    </div>
+
+    </div>
+</div>
+<div class="row my-5 text-capitalize">
+    <h2 *ngIf="media_type==='movie'">similar movies</h2>
+    <h2 *ngIf="media_type==='tv'&& similars.length">similar tvs</h2>
+  
+    <div class="col-lg-3 col-md-6 p-2 h-100 cursor-pointer" *ngFor="let similar of similars" (click)="getAnotherDetails(media_type,similar.id)">
+        <div class="position-relative">
+        <div class="ratio ratio-4x3">
+            <img [src]="image_path+similar.poster_path" alt="" >
+         
+        </div>
+        <h2 class="small mt-3">{{similar.title}}{{similar.name}}</h2>
+        
+</div>
+    </div>
+</div>

@@ -1,1 +1,63 @@
-<h2 class="text-center">Home component</h2>
+<div class="row g-2">
+    <div class="col-lg-6 col-md-6 text-capitalize p-2 d-flex align-items-center">
+        <div class="w-100">
+        <div class="w-25 border-top pt-2 border-secondary"></div>
+        <h2 class="text-light ">trending <br>movies<br>right now</h2>
+        <p class="text-muted border-bottom border-secondary pb-2 w-75 fs-4">top trending movies by week</p>
+    </div>
+</div>
+    <div class="col-lg-3 col-md-6 p-2 h-100 cursor-pointer" *ngFor="let trending of trendingsMovis" [routerLink]="['/details',trending.id,trending.media_type]">
+        <div class="position-relative">
+        <div class="ratio ratio-4x3">
+            <img [src]="image_path+trending.poster_path" alt="">
+        </div>
+        <h2 class="small mt-1">{{trending.title}}</h2>
+        <div class="d-flex justify-content-between">
+        <h2 class="small text-info">{{trending.vote_count}}</h2>
+        <h2 class="position-absolute top-0 end-0 text-bg-dark">{{trending.vote_average.toFixed(1)}}</h2>
+        <i class="fa-solid fa-star"></i>
+    </div>
+</div>
+    </div>
+</div>
+<div class="row g-2">
+    <div class="col-lg-6 col-md-6 text-capitalize p-2 d-flex align-items-center">
+        <div class="w-100">
+        <div class="w-25 border-top pt-2 border-secondary"></div>
+        <h2 class="text-light ">trending <br>tvs<br>right now</h2>
+        <p class="text-muted border-bottom border-secondary pb-2 w-75 fs-4">top trending tvs by week</p>
+    </div>
+</div>
+    <div class="col-lg-3 col-md-6 p-2 h-100 cursor-pointer" *ngFor="let trending of trendingsTvs" [routerLink]="['/details',trending.id,trending.media_type]">
+        <div class="position-relative">
+        <div class="ratio ratio-4x3">
+            <img [src]="image_path+trending.poster_path" alt="">
+        </div>
+        <h2 class="small mt-1">{{trending.name}}</h2>
+        <div class="d-flex justify-content-between">
+        <h2 class="small text-info">{{trending.vote_count}}</h2>
+        <h2 class="position-absolute top-0 end-0 text-bg-dark">{{trending.vote_average.toFixed(1)}}</h2>
+        <i class="fa-solid fa-star"></i>
+    </div>
+</div>
+    </div>
+</div>
+<div class="row g-2">
+    <div class="col-lg-6 col-md-6 text-capitalize p-2 d-flex align-items-center">
+        <div class="w-100">
+        <div class="w-25 border-top pt-2 border-secondary"></div>
+        <h2 class="text-light ">trending <br>peoples<br>right now</h2>
+        <p class="text-muted border-bottom border-secondary pb-2 w-75 fs-4">top trending peoples by week</p>
+    </div>
+</div>
+    <div class="col-lg-3 col-md-6 p-2 h-100 cursor-pointer" *ngFor="let trending of trendingsPeoples" [routerLink]="['/details',trending.id,'person']">
+        <div class="position-relative">
+        <div class="ratio ratio-4x3">
+            <img [src]="image_path+trending.profile_path" alt="">
+        </div>
+        <h2 class="small mt-3">{{trending.name}}</h2>
+        
+</div>
+    </div>
+</div>
+

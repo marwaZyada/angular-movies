@@ -25,7 +25,9 @@ export class LoginComponent {
       next:(res)=>{
         console.log(res);
         if(res.message=='success'){
-          
+          localStorage.clear()
+          localStorage.setItem('token',res.token)
+          this._AuthService.token=res.token
           this._Router.navigate(['/home'])
         }
         

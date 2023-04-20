@@ -8,13 +8,13 @@
 
       <div class="collapse navbar-collapse " id="navbarSupportedContent">
 
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 "*ngIf="_AuthService.token">
 
           <li class="nav-item">
             <a class="nav-link active" routerLinkActive="activeL" routerLink='home'>Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" routerLinkActive="activeL" routerLink='movies'>Movies</a>
+            <a class="nav-link active" routerLinkActive="activeL" routerLink='movie'>Movies</a>
           </li>
 
           <li class="nav-item">
@@ -22,6 +22,9 @@
           </li>
           <li class="nav-item">
             <a class="nav-link active" routerLinkActive="activeL" routerLink='actors'>Actors</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" routerLinkActive="activeL" routerLink='details/:id/:media_type'>details</a>
           </li>
 
 
@@ -38,16 +41,16 @@
 
 
 
-          <li class="nav-item">
-            <span  class="nav-link"  >Logout</span>
+          <li class="nav-item"  >
+            <a  class="nav-link" *ngIf="_AuthService.token" (click)="_AuthService.logout()">Logout</a>
           </li>
 
 
-          <li class="nav-item">
+          <li class="nav-item" *ngIf="!_AuthService.token">
             <a class="nav-link active" routerLinkActive="activeL" routerLink='register'>Register</a>
           </li>
 
-          <li class="nav-item">
+          <li class="nav-item" *ngIf="!_AuthService.token">
             <a class="nav-link active" routerLinkActive="activeL" routerLink='login'>Login</a>
           </li>
 

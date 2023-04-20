@@ -1,1 +1,15 @@
-<p>tv-shows works!</p>
+<div class="row">
+  
+    <div class="col-lg-3 col-md-6 p-2 h-100 cursor-pointer" *ngFor="let tv of tvs" [routerLink]="['/details',tv.id,'tv']">
+        <div class="position-relative">
+        <div class="ratio ratio-4x3">
+            <img [src]="image_path+tv.poster_path" alt="" >
+         
+        </div>
+        <h2 class="small mt-3">{{tv.name}}</h2>
+        
+</div>
+    </div>
+  
+
+</div>

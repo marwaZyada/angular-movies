@@ -7,14 +7,17 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { ActorsComponent } from './actors/actors.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { AuthGuardGuard } from './guard/auth-guard.guard';
+import { DetailsComponent } from './details/details.component';
 
 const routes: Routes = [
 
-  {path:'' , redirectTo:'register',pathMatch:'full'},
-  {path:'home' , component:HomeComponent},
-  {path:'movies' , component:MoviesComponent},
-  {path:'tv' , component:TvShowsComponent},
-  {path:'actors' , component:ActorsComponent},
+  {path:'' , redirectTo:'home',pathMatch:'full'},
+  {path:'home' ,canActivate:[AuthGuardGuard] ,component:HomeComponent},
+  {path:'movie' , canActivate:[AuthGuardGuard] ,component:MoviesComponent},
+  {path:'tv' , canActivate:[AuthGuardGuard] ,component:TvShowsComponent},
+  {path:'actors' , canActivate:[AuthGuardGuard] ,component:ActorsComponent},
+  {path:'details/:id/:media_type' , canActivate:[AuthGuardGuard] ,component:DetailsComponent},
   {path:'register' , component:RegisterComponent},
   {path:'login' , component:LoginComponent},
   {path:'**' , component:NotFoundComponent},
